@@ -1,0 +1,49 @@
+# Import necessary libraries
+from nltk.chat.util import Chat, reflections
+import dialogflow_v2 as dialogflow
+
+# Define NLTK chatbot responses
+pairs = [
+    ['hi|hello|hey', ['Hello!', 'Hi there!', 'Hey!']],
+    ['how are you?', ['I am doing well, thank you!', 'I\'m good, how about you?']],
+    ['what is your name?', ['My name is Chatbot.', 'You can call me Chatbot.']],
+    ['bye|goodbye', ['Goodbye!', 'Bye!', 'See you later!']],
+    ['default', ['I am not sure I understand.', 'Could you please rephrase that?']]
+]
+
+# Create NLTK chatbot
+chatbot = Chat(pairs, reflections)
+
+# Define Dialogflow parameters
+PROJECT_ID = 'your_project_id'
+SESSION_ID = 'your_session_id'
+LANGUAGE_CODE = 'en-US'
+
+# Define function to interact with Dialogflow
+def detect_intent_texts(text, session_id, language_code):
+    session_client = dialogflow.SessionsClient()
+    session = session_client.session_path(PROJECT_ID, session_id)
+
+    text_input = dialogflow.TextInput(text=text, language_code=language_code)
+    query_input = dialogflow.QueryInput(text=text_input)
+
+    response = session_client.detect_intent(request={"session": session, "query_input": query_input})
+
+    return response.query_result.fulfillment_text
+
+# Main loop to interact with users
+while True:
+    user_input = input("You: ")
+    
+    # Exit loop if user says goodbye
+    if user_input.lower() == 'bye':
+        print("Chatbot: Goodbye!")
+        break
+    
+    # Get response from NLTK chatbot
+    nltk_response = chatbot.respond(user_input)
+    print("NLTK Chatbot:", nltk_response)
+    
+    # Get response from Dialogflow
+    dialogflow_response = detect_intent_texts(user_input, SESSION_ID, LANGUAGE_CODE)
+    print("Dialogflow:", dialogflow_response)
