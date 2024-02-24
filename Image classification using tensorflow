@@ -1,0 +1,66 @@
+Image classification using tensorflow
+
+Introduction:
+Tensorflow:
+
+TensorFlow is an open-source machine learning framework developed by Google. It's widely used for building, training, and deploying machine learning models, especially deep learning models. TensorFlow provides a comprehensive ecosystem of tools, libraries, and community resources to support various machine learning tasks, from simple regression to complex deep neural networks.
+
+Keras:
+
+Keras is an open-source neural network library written in Python. It's designed to be user-friendly, modular, and extensible, allowing for fast experimentation with deep neural networks. Keras provides a high-level API that simplifies the process of building and training neural networks, making it accessible to both beginners and experts in machine learning. It can run on top of TensorFlow, Theano, or Microsoft Cognitive Toolkit (CNTK). Keras is often used for rapid prototyping, research, and production deployment of deep learning models.
+
+Data collection :
+
+Gather a datasets of images for training and testing . We can use publicity available datasets like CIFAR-10,MNIST,or create our own data set 
+
+Data Preprocessing:
+
+Resize the images to standard size (eg: 224×224 pixels
+Normalize the pixels values to be in the range [0,1].
+Split the data set into training and testing sets
+
+Model building :
+
+Choose a pre- trained model or build our own convolutional neural networks (CNN) architecture using the tensorflow keras API.
+Add layers such as convolutional layers, pooling layers and dense layers 
+Compile the model with an appropriate lose function ,optimizer,metrics 
+
+
+Model training :
+
+Train the model on the training data using tensorflow model.fit() function 
+Specific the number of epochs and batch size
+Monitor the training process to avoid over fitting
+
+Model Evaluation :
+
+Evaluate the trained model on the testing data using tensorflow  model.evolute() function
+Calculate metrics such as accuracy ,precision,recall,and F1- score
+Visualize the performance metrics using plots or tables.
+
+Model deployment :
+
+Save these trained model future use
+Deploy the model in production environment ,such as a web applications,mobile app using tensorflow serving or tensorflow lite.
+
+Conclusion :
+
+TensorFlow is a powerful open-source machine learning framework developed by Google. In conclusion, TensorFlow offers a comprehensive ecosystem for building, training, and deploying machine learning models efficiently across various platforms and devices. Its flexibility, scalability, and extensive community support make it a popular choice for both researchers and developers in the field of deep learning and artificial intelligence.
+
+References :
+
+Here are some key references for TensorFlow:
+
+1. TensorFlow Official Documentation: https://www.tensorflow.org/
+2. TensorFlow GitHub Repository: https://github.com/tensorflow/tensorflow
+3. TensorFlow White Papers: 
+   - "TensorFlow: Large-Scale Machine Learning on Heterogeneous Systems" by Martín Abadi et al.
+   - "TensorFlow: A System for Large-Scale Machine Learning" by Martín Abadi et al.
+4. TensorFlow Models GitHub Repository: https://github.com/tensorflow/models
+5. TensorFlow Tutorials and Guides: https://www.tensorflow.org/tutorials
+6. TensorFlow Research Papers: Various papers published by researchers and practitioners using TensorFlow.
+7. TensorFlow Blog: https://blog.tensorflow.org/
+8. TensorFlow YouTube Channel: https://www.youtube.com/tensorflow
+
+These resources provide comprehensive documentation, examples, tutorials, and updates on TensorFlow's development and applications.
+
